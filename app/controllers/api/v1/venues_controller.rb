@@ -3,7 +3,7 @@ module Api::V1
     before_action :set_venue, only: [:show]
 
     def index
-      @venues = Venue.all
+      @venues = Venue.includes(:sports).all
     end
 
     def show
