@@ -24,7 +24,7 @@ class VenuesController < ApplicationController
     @venue = Venue.new(venue_params)
 
     if @venue.save
-      redirect_to @venue, notice: 'Venue was successfully created.'
+      redirect_to "/explore", notice: 'Venue was successfully created.'
     else
       render :new
     end
