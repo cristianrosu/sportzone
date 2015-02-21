@@ -99,3 +99,36 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+
+.sport-venue {
+  @extend .panel, .panel-default;
+  position:relative;
+  padding: 10px 10px 10px 20px;
+
+  .city {
+    @extend .text-muted, .pull-right;
+    line-height: 24px;
+    margin-bottom: 2px;
+  }
+  .label-sport {
+    @extend .label, .label-primary;
+  }
+
+  .other-info {
+    margin-top: 10px;
+    padding-top: 6px;
+    border-top: 1px solid #efefef;
+  }
+
+  .view-more {
+    @extend .text-muted;
+    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    bottom: 2px;
+    &:hover {
+      @extend .text-primary;
+    }
+  }
+}

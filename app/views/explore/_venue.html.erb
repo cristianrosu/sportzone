@@ -1,9 +1,18 @@
 
-<div class="panel panel-default">
-    <div style="padding:20px;">
-        <p class="lead"><%= link_to venue.name, venue %></p>
-        <p><%= venue.city %></p>
-        <p><%= venue.address %></p>
-      <% #= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{venue.latitude}%2C#{venue.longitude}" %>
+<div class="sport-venue">
+    <p class="city"><%= venue.city %></p>
+    <p class="lead" style="margin-bottom:2px"><%= link_to venue.name, venue %></p>
+    <p><i class="glyphicon glyphicon-map-marker"></i> <%= venue.address %></p>
+    <% #= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{venue.latitude}%2C#{venue.longitude}" %>
+    <% venue.sports.each do |venue| %>
+    <label class="label-sport"><%= venue.name %></label>
+    <% end %>
+    <div class="js-venue-other-info other-info hidden">
+        <p><strong>Alte informatii</strong></p>
+        <p><%= venue.description %></p>
+        <p><i class="glyphicon glyphicon-phone"></i> <%= venue.phone %></p>
+        <p><i class="glyphicon glyphicon-globe"></i><%= venue.url_website %></p>
+        <p><%= venue.url_facebook %></p>
     </div>
+    <a class="view-more js-view-more"><i class="glyphicon glyphicon-menu-down"></i></a>
 </div>

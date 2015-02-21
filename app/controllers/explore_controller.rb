@@ -4,7 +4,14 @@ class ExploreController < ApplicationController
   end
 
   def map
-    @venues = Venue.all  # TODO geolocate ths query
+
+    if params[:query]
+      @venues = Venue.includes(:sports).where(sports: { id: params[:query] })  # TODO geolocate ths query
+    else
+      @venues = Venue.all  # TODO geolocate ths query
+    end
+
+    @sports = Sport.all
 
     @venues_hash = Gmaps4rails.build_markers(@venues) do |venue, marker|
       marker.lat venue.latitude
