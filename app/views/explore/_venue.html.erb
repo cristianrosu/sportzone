@@ -1,0 +1,9 @@
+
+<div class="panel panel-default">
+    <div style="padding:20px;">
+        <p class="lead"><%= venue.name %></p>
+        <p><%= venue.city %></p>
+        <p><%= venue.address %></p>
+      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{venue.latitude}%2C#{venue.longitude}" %>
+    </div>
+</div>

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'explore', to: 'explore#index'
+
+  get 'explore/map'
+
   resources :sports
 
   resources :venues

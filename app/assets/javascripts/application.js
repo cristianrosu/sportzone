@@ -15,6 +15,10 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require chosen-jquery
+
+//= require underscore
+//= require gmaps/google
+
 //= require_tree .
 
 

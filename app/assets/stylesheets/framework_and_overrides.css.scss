@@ -1,6 +1,25 @@
 // import the CSS framework
 @import "bootstrap-sprockets";
-@import "bootstrap";
+@import "bootstrap-custom";
+
+
+html, body, main {
+  height: 100%;
+}
+
+/*  =====================================
+    Bootstrap Css Map Fix
+ *  ===================================== */
+
+ #map img {
+  max-width: none;
+}
+#map label {
+  width: auto; display:inline;
+}
+
+/*  ===================================== */
+
 
 // make all images responsive by default
 img {
@@ -36,9 +55,9 @@ img {
 main {
   @extend .container;
   background-color: #eee;
-  padding-bottom: 80px;
+//  padding-bottom: 80px;
   width: 100%;
-  margin-top: 51px; // accommodate the navbar
+  padding-top: 52px; // accommodate the navbar
   }
 section {
   @extend .row;
