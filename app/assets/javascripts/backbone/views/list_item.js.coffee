@@ -6,7 +6,6 @@ class Sportzone.Views.ListItem extends Backbone.View
 
   initialize: ({model}) ->
     @model = model
-    debugger
 
     # TODO: Think... is this necessary?
     # @listenTo(@model, 'sync', @render)
