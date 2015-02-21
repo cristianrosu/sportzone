@@ -19,6 +19,7 @@
 // Vendor libraries
 //= require underscore
 //= require backbone
+//= require handlebars.runtime
 
 // Backbone App
 //= require backbone/sportzone

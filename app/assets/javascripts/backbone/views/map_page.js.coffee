@@ -15,4 +15,8 @@ class Sportzone.Views.MapPage extends Backbone.View
       @_renderVenue(model, map)
 
   _renderVenue: (model, map) ->
-    markerView = new Sportzone.Views.Marker(model: model, map: map).render()
+    markerView = new Sportzone.Views.Marker(model: model, map: map)
+    listItemView = new Sportzone.Views.ListItem(model: model)
+
+    $('#venues-list').append(listItemView.render().el)
+    markerView.render()
