@@ -17,6 +17,6 @@
 //= require chosen-jquery
 
 //= require underscore
-//= require gmaps/google
+//= require backbone
 
 //= require_tree .
