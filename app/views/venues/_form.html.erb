@@ -6,15 +6,14 @@
     <%= f.input :description %>
     <%= f.input :city %>
     <%= f.input :address %>
-    <%= f.input :latitude %>
-    <%= f.input :longitude %>
+
+    <%= f.association :sports, collection: Sport.all, include_blank: true, input_html: { class: "chosen-select" } %>
+
     <%= f.input :phone %>
     <%= f.input :email %>
     <%= f.input :url_website %>
     <%= f.input :url_facebook %>
-    <% #= f.input :other_info %>
-    <%= f.input :contributor_id %>
-    <%= f.input :status %>
+    <% # = f.input :other_info %>
   </div>
 
   <div class="form-actions">

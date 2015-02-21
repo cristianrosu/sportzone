@@ -11,11 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221110827) do
+ActiveRecord::Schema.define(version: 20150221130316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "sports", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "sports_venues", force: :cascade do |t|
+    t.integer "sport_id"
+    t.integer "venue_id"
+  end
+
+  add_index "sports_venues", ["sport_id", "venue_id"], name: "index_sports_venues_on_sport_id_and_venue_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

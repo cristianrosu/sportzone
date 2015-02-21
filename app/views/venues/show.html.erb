@@ -1,9 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @venue.name %>
-</p>
+<h1><%= @venue.name %></h1>
 
 <p>
   <strong>Description:</strong>
@@ -20,7 +17,10 @@
   <%= @venue.address %>
 </p>
 
-
+<p class="lead">Sporturi</p>
+<% @venue.sports.each_with_index do |sport| %>
+    <span class="label label-primary"><%= sport.name %></span>
+<% end %>
 
 <p>
   <strong>Phone:</strong>
@@ -40,16 +40,6 @@
 <p>
   <strong>Url facebook:</strong>
   <%= @venue.url_facebook %>
-</p>
-
-<p>
-  <strong>Contribuitor:</strong>
-  <%= @venue.contributor_id %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @venue.status %>
 </p>
 
 <%= link_to 'Edit', edit_venue_path(@venue) %> |

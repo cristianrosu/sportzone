@@ -7,20 +7,21 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+
 gem 'rails_12factor', group: :production
 
-group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'spring'
-end
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise_invitable'
 gem 'high_voltage'
 gem 'pg'
 gem 'simple_form'
+gem 'geocoder'
+gem 'chosen-rails'
+
+
 group :development do
+  gem 'hirb'
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
   gem 'capistrano-bundler'
@@ -32,6 +33,10 @@ group :development do
   gem 'spring-commands-rspec'
 end
 group :development, :test do
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
+
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry-rails'
