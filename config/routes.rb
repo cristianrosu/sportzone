@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     scope module: :v1, constraints: APIVersion.new('v1', true) do
       resources :venues, only: [:index, :show]
+      resources :sports, only: [:index, :show]
     end
   end
 end
