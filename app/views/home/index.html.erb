@@ -1,0 +1,24 @@
+<div id="home-background">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="home-page">
+          <h1>SportZone</h1>
+          <p class="lead">Find location-based venues for sports and sports activities.</p>
+          <div style="padding-top: 40px">
+
+              <%= form_tag(explore_path, method: "get", class: "form-inline") do %>
+                  <div class="form-group">
+                      <%= text_field_tag :location, nil, class: "form-control input-lg", value: "Cluj Napoca", placeholder: "Search city" %>
+                      <%= submit_tag "Search", class: "btn btn-primary btn-lg" %>
+                  </div>
+              <% end %>
+
+              <ul id="home-menu">
+                <li><%= link_to "Map Explore", explore_path %></li>
+                <li><%= link_to "About", home_about_path %></li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

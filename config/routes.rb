@@ -1,9 +1,12 @@
 require 'api_version'
 
 Rails.application.routes.draw do
-  root to: redirect('explore/map')
-  get 'explore', to: 'explore#index'
-  get 'explore/map'
+  root to: 'home#index'
+
+  get 'home/about'
+
+  get 'explore', to: 'explore#map'
+  # get 'explore/map'
 
   devise_for :users
   resources :sports

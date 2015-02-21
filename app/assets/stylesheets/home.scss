@@ -1,0 +1,37 @@
+#home-background {
+  height:100%;
+  width:100%;
+  background-image: asset_url('sport-zone-cover.jpg');
+  background-size: cover ;
+}
+
+
+.home-page {
+  padding-top: 200px;
+  text-align: center;
+  h1, p {
+    color: white;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+}
+
+
+
+#home-menu {
+  list-style: none;
+  padding-left: 0;
+  li {
+    display: inline-block;
+    padding: 3em 2em;
+    a {
+      text-decoration: underline;
+      color: #fff;
+      letter-spacing: 1px;
+      padding-bottom:1px;
+    }
+  }
+}
