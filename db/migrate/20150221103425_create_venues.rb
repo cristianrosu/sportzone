@@ -1,12 +1,12 @@
 class CreateVenues < ActiveRecord::Migration
   def change
     create_table :venues do |t|
-      t.string :name
+      t.string :name, null: false
       t.text :description
-      t.string :city
-      t.string :address
-      t.float :latitude
-      t.float :longitude
+      t.string :city, null: false
+      t.string :address, null: false
+      t.float :latitude, null: false
+      t.float :longitude, null: false
       t.string :phone
       t.string :email
       t.string :url_website

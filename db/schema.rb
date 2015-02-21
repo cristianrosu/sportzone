@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150221103425) do
+ActiveRecord::Schema.define(version: 20150221110827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -51,12 +52,12 @@ ActiveRecord::Schema.define(version: 20150221103425) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "venues", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",           null: false
     t.text     "description"
-    t.string   "city"
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.string   "city",           null: false
+    t.string   "address",        null: false
+    t.float    "latitude",       null: false
+    t.float    "longitude",      null: false
     t.string   "phone"
     t.string   "email"
     t.string   "url_website"
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 20150221103425) do
     t.integer  "status"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.hstore   "other_info"
   end
 
 end
