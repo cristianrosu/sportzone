@@ -1,7 +1,13 @@
 <script type="text/javascript">
+  $(function() {
     // Loading Bootstrapped Models
-    window.venues = new Sportzone.Collections.VenueList;
+    var venues = new Sportzone.Collections.Venues;
     venues.reset(<%=raw @venues.to_json %>);
+
+    window.mapPageView = new Sportzone.Views.MapPage({
+        venues: venues
+    }).render();
+  });
 </script>
 
 <div class="col-md-4" style="height:100%;">
