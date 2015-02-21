@@ -5,6 +5,15 @@ class Venue < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode, :if => :full_address_changed?
 
+  # validations
+
+  validates :name, presence: true
+  validates :city, presence: true
+  validates :address, presence: true
+  validates :sports, presence: true
+
+
+
   def full_address
     self.city + self.address
   end
