@@ -21,7 +21,7 @@
 <% @venue.sports.each_with_index do |sport| %>
     <span class="label label-primary"><%= sport.name %></span>
 <% end %>
-
+<% #= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@venue.latitude}%2C#{@venue.longitude}" %>
 <p>
   <strong>Phone:</strong>
   <%= @venue.phone %>

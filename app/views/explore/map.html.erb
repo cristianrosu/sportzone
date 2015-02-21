@@ -1,14 +1,17 @@
 
-<div class="col-md-4" style="margin-right:0">
-  <div id="side-menu">
-
-    <% @venues.each do |venue| %>
-        <%= render "venue", venue: venue  %>
-    <% end %>
-
-  </div>
+<div class="col-md-4" style="height:100%;">
+    <div id="side-menu">
+        <div class="panel-content">
+          <div class="panel-content-inner">
+            <h2>Locatii</h2>
+            <% @venues.each do |venue| %>
+                <%= render "venue", venue: venue  %>
+            <% end %>
+          </div>
+        </div>
+    </div>
 </div>
-<div class="col-md-8" style="height:100%;position:relative">
+<div class="col-md-8" style="height:100%;">
 <div id="map-container">
     <div id="map"></div>
 </div>

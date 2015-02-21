@@ -19,22 +19,25 @@
 }
 
 #side-menu {
-  position: fixed;
-  overflow: scroll;
-  top: 0;
-  bottom: 0;
+  position: absolute;
   left: 0;
-  min-height: 0;
-  padding: 0;
+  bottom:0;
+  top:0;
+  right:0;
   z-index: 2;
-  -webkit-transform: translate3d(0,0,0);
-  -moz-transform: translate3d(0,0,0);
-  -ms-transform: translate3d(0,0,0);
-  -o-transform: translate3d(0,0,0);
-  transform: translate3d(0,0,0);
-  -webkit-transition: left .4s cubic-bezier(.345,0,.25,1);
-  -moz-transition: left .4s cubic-bezier(.345,0,.25,1);
-  -ms-transition: left .4s cubic-bezier(.345,0,.25,1);
-  -o-transition: left .4s cubic-bezier(.345,0,.25,1);
-  transition: left .4s cubic-bezier(.345,0,.25,1);
+  -webkit-transition: top .5s cubic-bezier(.345,0,.25,1);
+  -moz-transition: top .5s cubic-bezier(.345,0,.25,1);
+  -ms-transition: top .5s cubic-bezier(.345,0,.25,1);
+  -o-transition: top .5s cubic-bezier(.345,0,.25,1);
+  transition: top .5s cubic-bezier(.345,0,.25,1);
+  overflow: scroll;
+
+}
+
+.panel-content {
+  position: relative;
+  .panel-content-inner {
+    padding: 30px 12px;
+  }
+
 }
