@@ -16,7 +16,15 @@
 //= require bootstrap-sprockets
 //= require chosen-jquery
 
+// Vendor libraries
 //= require underscore
 //= require backbone
+
+// Backbone App
+//= require backbone/sportzone
+//= require_tree ./backbone/models
+//= require_tree ./backbone/collections
+//= require_tree ./backbone/templates
+//= require_tree ./backbone/views
 
 //= require_tree .
