@@ -53,11 +53,11 @@ img {
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
-  @extend .container;
+//  @extend .container;
+  display: block;
   background-color: #eee;
-//  padding-bottom: 80px;
   width: 100%;
-  padding-top: 52px; // accommodate the navbar
+  padding-top: 51px; // accommodate the navbar
   }
 section {
   @extend .row;
