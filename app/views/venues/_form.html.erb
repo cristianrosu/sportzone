@@ -1,0 +1,23 @@
+<%= simple_form_for(@venue) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :city %>
+    <%= f.input :address %>
+    <%= f.input :latitude %>
+    <%= f.input :longitude %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :url_website %>
+    <%= f.input :url_facebook %>
+    <% #= f.input :other_info %>
+    <%= f.input :contributor_id %>
+    <%= f.input :status %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

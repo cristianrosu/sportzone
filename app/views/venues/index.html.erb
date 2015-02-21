@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Venues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>City</th>
+      <th>Address</th>
+
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Url website</th>
+      <th>Url facebook</th>
+
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @venues.each do |venue| %>
+      <tr>
+        <td><%= venue.name %></td>
+        <td><%= venue.description %></td>
+        <td><%= venue.city %></td>
+        <td><%= venue.address %></td>
+        <td><%= venue.phone %></td>
+        <td><%= venue.email %></td>
+        <td><%= venue.url_website %></td>
+        <td><%= venue.url_facebook %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Venue', new_venue_path %>
