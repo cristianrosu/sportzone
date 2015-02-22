@@ -13,6 +13,9 @@ class Sportzone.Views.Map extends Backbone.View
   _renderMap: ->
     @map = new google.maps.Map(@_mapElement(), @_mapOptions())
     @_fitBounds()
+    google.maps.event.addListener @map, 'idle', =>
+      # TODO: Use this to load venues dinamically
+      @trigger('map:idle')
 
   _changeCenter: ->
     @map.panTo(@_mapCenter())
