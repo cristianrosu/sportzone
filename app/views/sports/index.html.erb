@@ -1,29 +1,20 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Sports</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @sports.each do |sport| %>
-      <tr>
-        <td><%= sport.name %></td>
-        <td><%= sport.description %></td>
-        <td><%= link_to 'Show', sport %></td>
-        <td><%= link_to 'Edit', edit_sport_path(sport) %></td>
-        <td><%= link_to 'Destroy', sport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Sport', new_sport_path %>
+<div class="container clearfix">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+          <h1>Toate Sporturile </h1>
+            <% if user_signed_in? %>
+            <%= link_to '+ New Sport', new_sport_path ,class:"btn btn-success" %>
+            <% end %>
+          <hr/>
+          <% @sports.each do |sport| %>
+            <p class="lead"><%= sport.name %></p>
+            <% if user_signed_in? %>
+              <span><%= link_to 'Show', sport %></span>,
+              <span><%= link_to 'Edit', edit_sport_path(sport) %></span>,
+              <span><%= link_to 'Destroy', sport, method: :delete, data: { confirm: 'Are you sure?' } %></span></p>
+            <% end %>
+          <% end %>
+    </div>
+  </div>
+</div>

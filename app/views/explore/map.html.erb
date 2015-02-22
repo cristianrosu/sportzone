@@ -28,7 +28,15 @@
     <div id="side-menu">
         <div class="panel-content">
           <div class="panel-content-inner">
-            <div id="search-form" class="alert alert-warning clearfix">
+            <div id="search-form" class="panel panel-default clearfix" style="padding:10px">
+              <%= form_tag api_venues_path, method: "get", remote: true, class: "inline-form" do %>
+                  <div class="form-group">
+                    <%= text_field_tag :location, nil, class: "form-control", placeholder: "Search city" %>
+                  </div>
+                  <div class="form-group">
+                    <%= select_tag :query, options_from_collection_for_select(@sports, "id", "name"), multiple: true, class: 'form-control chosen-select', style: "width:100%" %>
+                  </div>
+                  <%= submit_tag "Search", class:"btn btn-primary btn-block" %>
 
               <%= form_tag(api_venues_path, method: "get", remote: true) do %>
                   <%= text_field_tag :location, nil, class: "input-form", placeholder: "Search address", value: @location.search_string %>

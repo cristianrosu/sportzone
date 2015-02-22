@@ -1,6 +1,7 @@
 class VenuesController < ApplicationController
-  before_action :set_venue, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_venue, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   # GET /venues
   def index
     @venues = Venue.all

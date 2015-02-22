@@ -1,46 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default clearfix"  style="margin-top: 80px; padding:2em">
+        <div class="pull-right">
+          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@venue.latitude}%2C#{@venue.longitude}" %>
+        </div>
+        <div class="pull-left">
+            <h1><%= @venue.name %></h1>
+            <p class="lead" style="margin-bottom:10px;"><i class="glyphicon glyphicon-map-marker"></i> <%= @venue.city %>,  <%= @venue.address %> </p>
+            <% @venue.sports.each_with_index do |sport| %>
+              <span class="label label-primary"><%= sport.name %></span>
+            <% end %>
+            <hr/>
 
-<h1><%= @venue.name %></h1>
+            <h4>Alte Informatii:</h4>
+            <p> <strong>Telefon:</strong>  <%= @venue.phone %> </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @venue.description %>
-</p>
+            <p> <strong>Email:</strong>  <%= @venue.email %> </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @venue.city %>
-</p>
+            <p> <strong>website:</strong> <%= @venue.url_website %> </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @venue.address %>
-</p>
-
-<p class="lead">Sporturi</p>
-<% @venue.sports.each_with_index do |sport| %>
-    <span class="label label-primary"><%= sport.name %></span>
-<% end %>
-<% #= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@venue.latitude}%2C#{@venue.longitude}" %>
-<p>
-  <strong>Phone:</strong>
-  <%= @venue.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @venue.email %>
-</p>
-
-<p>
-  <strong>Url website:</strong>
-  <%= @venue.url_website %>
-</p>
-
-<p>
-  <strong>Url facebook:</strong>
-  <%= @venue.url_facebook %>
-</p>
-
-<%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to 'Back', venues_path %>
+            <p> <strong>facebook:</strong> <%= @venue.url_facebook %>  </p>
+        </div>
+      </div>
+      <div class="panel panel-default clearfix" style="padding:2em">
+        <p> <strong>Despre:</strong> <%= @venue.description %> </p>
+      </div>
+    </div>
+  </div>
+</div>
