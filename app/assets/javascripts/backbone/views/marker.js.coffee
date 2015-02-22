@@ -29,10 +29,10 @@ class Sportzone.Views.Marker extends Backbone.View
       position: @_buildPosition(model)
       map: map
       image: @iconURL
-        size: new google.maps.Size(35, 55)
-        url: @iconURL
-        origin: new google.maps.Point(0,0)
-        anchor: new google.maps.Point(0, 32)
+        # size: new google.maps.Size(35, 55)
+        # url: @iconURL
+        # origin: new google.maps.Point(0,0)
+        # anchor: new google.maps.Point(0, 32)
 
   _buildPosition: (model) ->
     new google.maps.LatLng(
