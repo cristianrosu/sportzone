@@ -5,10 +5,14 @@
     venues.reset(<%= raw @venues_json %>);
     var sports = new Sportzone.Collections.Sports;
     sports.reset(<%= raw @sports.to_json %>);
+    var initLat = <%= @location.latitude %>;
+    var initLng = <%= @location.longitude %>;
 
     window.mapPageView = new Sportzone.Views.MapPage({
         venues: venues,
-        sports: sports
+        sports: sports,
+        initLat: initLat,
+        initLng: initLng
     }).render();
   });
 </script>

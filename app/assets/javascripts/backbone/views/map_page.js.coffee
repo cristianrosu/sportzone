@@ -1,10 +1,12 @@
 class Sportzone.Views.MapPage extends Backbone.View
-  initialize: ({venues, sports}) ->
+  initialize: ({venues, sports, initLat, initLng}) ->
     @venues = venues
     @sports = sports
+    @initLat = initLat
+    @initLng = initLng
 
   render: ->
-    @mapView = new Sportzone.Views.Map().render()
+    @mapView = new Sportzone.Views.Map(lat: @initLat, lng: @initLng).render()
     @map = @mapView.map
 
     @_renderAllVenues(@map)
