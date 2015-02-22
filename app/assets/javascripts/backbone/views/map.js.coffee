@@ -4,7 +4,7 @@ class Sportzone.Views.Map extends Backbone.View
   initialize: ({location}) ->
     @location = location
 
-    @listenTo(@location, 'change', @_changeCenter)
+    @listenTo(@location, 'change', @_fitBounds)
 
   render: ->
     @_renderMap()
@@ -15,6 +15,11 @@ class Sportzone.Views.Map extends Backbone.View
 
   _changeCenter: ->
     @map.panTo(@_mapCenter())
+
+  _fitBounds: ->
+    sw = new google.maps.LatLng(@location.get('bottom'), @location.get('left'))
+    ne = new google.maps.LatLng(@location.get('top'), @location.get('right'))
+    @map.fitBounds(new google.maps.LatLngBounds(sw, ne))
 
   _mapElement: ->
     document.getElementById('map')

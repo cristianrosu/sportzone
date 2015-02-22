@@ -1,16 +1,13 @@
 module Api::V1
   class VenuesController < ApplicationController
     def index
-      @location = GeolocationService.new(params[:location]).location
+      location = GeolocationService.new(params[:location]).location
+      @location = LocationPresenter.new(location)
       venues = VenueFilter.new(@location, params).venues
       @venues_json = VenuePresenter.wrap(venues).map(&:to_json)
 
-      # TODO: I am ugly, changeme
       render json: {
-        location: {
-          latitude: @location.latitude,
-          longitude: @location.longitude
-        },
+        location: @location.to_hash,
         venues: @venues_json
       }
     end

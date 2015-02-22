@@ -7,7 +7,11 @@
     sports.reset(<%= raw @sports.to_json %>);
     var location = new Sportzone.Models.Location({
       latitude: <%= @location.latitude %>,
-      longitude: <%= @location.longitude %>
+      longitude: <%= @location.longitude %>,
+      top: <%= @location.top %>,
+      right: <%= @location.right %>,
+      bottom: <%= @location.bottom %>,
+      left: <%= @location.left %>
     });
 
     window.mapPageView = new Sportzone.Views.MapPage({
