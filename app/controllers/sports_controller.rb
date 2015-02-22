@@ -1,5 +1,7 @@
 class SportsController < ApplicationController
+
   before_action :set_sport, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
 
   # GET /sports
   def index

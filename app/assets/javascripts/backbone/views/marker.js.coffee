@@ -25,7 +25,6 @@ class Sportzone.Views.Marker extends Backbone.View
       @marker.setMap(null)
 
   _buildMarker: (model, map) ->
-    debugger
     new google.maps.Marker
       position: @_buildPosition(model)
       map: map

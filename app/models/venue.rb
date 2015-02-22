@@ -15,7 +15,7 @@ class Venue < ActiveRecord::Base
 
 
   def full_address
-    self.city + self.address
+    "#{self.city} #{self.address}"
   end
 
   def full_address_changed?
