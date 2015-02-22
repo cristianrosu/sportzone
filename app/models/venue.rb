@@ -20,6 +20,13 @@ class Venue < ActiveRecord::Base
     end
   end
 
+  def self.in_bounds(bounds)
+    where(
+      latitude:  bounds.bottom..bounds.top,
+      longitude: bounds.left..bounds.right
+    )
+  end
+
   def full_address
     self.city + self.address
   end

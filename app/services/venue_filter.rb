@@ -5,6 +5,6 @@ class VenueFilter
   end
 
   def venues
-    Venue.sports_in(@query).near([@location.latitude, @location.longitude], 40)  # TODO geolocate ths query
+    Venue.sports_in(@query).in_bounds(@location)  # TODO geolocate ths query
   end
 end
