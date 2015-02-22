@@ -18,7 +18,8 @@ gem 'pg'
 gem 'simple_form'
 gem 'geocoder'
 gem 'chosen-rails'
-gem 'gmaps4rails'
+# JS Templates
+gem 'handlebars_assets', '~> 0.19.1'
 
 group :development do
   gem 'hirb'

@@ -4,7 +4,6 @@ class ExploreController < ApplicationController
   end
 
   def map
-
     # get location requested by user through the search form or current user location
     @location = params[:location].blank? ? Geocoder.search("Cluj").first : Geocoder.search(params[:location]).first
 
@@ -14,11 +13,7 @@ class ExploreController < ApplicationController
       @venues = Venue.all.near([@location.latitude, @location.longitude], 40)
     end
 
+    @venues_json = VenuePresenter.wrap(@venues).map(&:to_json).to_json # Last one converts from Ruby Hash to JSON string
     @sports = Sport.all
-
-    @venues_hash = Gmaps4rails.build_markers(@venues) do |venue, marker|
-      marker.lat venue.latitude
-      marker.lng venue.longitude
-    end
   end
 end

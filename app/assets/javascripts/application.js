@@ -16,20 +16,16 @@
 //= require bootstrap-sprockets
 //= require chosen-jquery
 
+// Vendor libraries
 //= require underscore
-//= require gmaps/google
+//= require backbone
+//= require handlebars.runtime
+
+// Backbone App
+//= require backbone/sportzone
+//= require_tree ./backbone/models
+//= require_tree ./backbone/collections
+//= require_tree ./backbone/templates
+//= require_tree ./backbone/views
 
 //= require_tree .
-
-
-
-var ready = function() {
-    $('.chosen-select').chosen({
-        no_results_text: 'No results matched'
-    });
-}
-
-
-$('document').ready(ready);
-/* Page load is what turbo links will trigger. */
-$(document).on('page:load', ready);

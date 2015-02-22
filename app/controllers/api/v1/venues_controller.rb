@@ -1,18 +1,17 @@
 module Api::V1
   class VenuesController < ApplicationController
-    before_action :set_venue, only: [:show]
-
     def index
-      @venues = Venue.all
+      venues = Venue.includes(:sports).all
+      @venues_json = VenuePresenter.wrap(venues).map(&:to_json)
+
+      render json: @venues_json
     end
 
     def show
-    end
+      venue = Venue.includes(:sports).find(params[:id])
+      @venue_json = VenuePresenter.new(venue).to_json
 
-    private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_venue
-        @venue = Venue.find(params[:id])
-      end
+      render json: @venue_json
+    end
   end
 end
