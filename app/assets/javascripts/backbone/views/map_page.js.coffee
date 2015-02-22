@@ -1,24 +1,26 @@
 class Sportzone.Views.MapPage extends Backbone.View
-  initialize: ({venues, sports, initLat, initLng, iconURL}) ->
+  initialize: ({venues, sports, location, iconURL}) ->
     @venues = venues
     @sports = sports
-    @initLat = initLat
-    @initLng = initLng
+    @location = location
     @iconURL = iconURL
 
-  render: ->
-    @mapView = new Sportzone.Views.Map(lat: @initLat, lng: @initLng).render()
-    @map = @mapView.map
+    @listenTo(@venues, 'add', @_renderVenue)
 
-    @_renderAllVenues(@map)
+  render: ->
+    @mapView = new Sportzone.Views.Map(location: @location).render()
+    @map = @mapView.map
+    @searchFormView = new Sportzone.Views.SearchForm(collection: @venues, location: @location)
+
+    @_renderAllVenues()
     this
 
-  _renderAllVenues: (map) ->
+  _renderAllVenues: ->
     @venues.each (model) =>
-      @_renderVenue(model, map)
+      @_renderVenue(model)
 
-  _renderVenue: (model, map) ->
-    markerView = new Sportzone.Views.Marker(model: model, map: map, iconURL: @iconURL)
+  _renderVenue: (model) ->
+    markerView = new Sportzone.Views.Marker(model: model, map: @map, iconURL: @iconURL)
     listItemView = new Sportzone.Views.ListItem(model: model)
 
     $('#venues-list').append(listItemView.render().el)

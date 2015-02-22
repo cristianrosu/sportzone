@@ -5,8 +5,8 @@ class Sportzone.Views.Marker extends Backbone.View
     @iconURL = iconURL
 
     # TODO: Think... is this necessary?
-    # @listenTo(@model, 'sync', @render)
-    @listenTo(@model, 'destroy', @remove)
+    # @listenTo(@model, 'change', @render)
+    @listenTo(@model, 'remove', @remove)
 
   render: ->
     @_addMarker()
@@ -29,10 +29,11 @@ class Sportzone.Views.Marker extends Backbone.View
       position: @_buildPosition(model)
       map: map
       image: @iconURL
-        size: new google.maps.Size(35, 55)
-        url: @iconURL
-        origin: new google.maps.Point(0,0)
-        anchor: new google.maps.Point(0, 32)
+        # TODO: Make this work
+        # size: new google.maps.Size(35, 55)
+        # url: @iconURL
+        # origin: new google.maps.Point(0,0)
+        # anchor: new google.maps.Point(0, 32)
 
   _buildPosition: (model) ->
     new google.maps.LatLng(

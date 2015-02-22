@@ -5,14 +5,19 @@
     venues.reset(<%= raw @venues_json %>);
     var sports = new Sportzone.Collections.Sports;
     sports.reset(<%= raw @sports.to_json %>);
-    var initLat = <%= @location.latitude %>;
-    var initLng = <%= @location.longitude %>;
+    var location = new Sportzone.Models.Location({
+      latitude: <%= @location.latitude %>,
+      longitude: <%= @location.longitude %>,
+      top: <%= @location.top %>,
+      right: <%= @location.right %>,
+      bottom: <%= @location.bottom %>,
+      left: <%= @location.left %>
+    });
 
     window.mapPageView = new Sportzone.Views.MapPage({
         venues: venues,
         sports: sports,
-        initLat: initLat,
-        initLng: initLng,
+        location: location,
         iconURL: '<%= asset_url("marker-pin.png")%>'
     }).render();
   });
@@ -23,7 +28,7 @@
         <div class="panel-content">
           <div class="panel-content-inner">
             <div id="search-form" class="panel panel-default clearfix" style="padding:10px">
-              <%= form_tag explore_path, method: "get", class: "inline-form" do %>
+              <%= form_tag api_venues_path, method: "get", remote: true, class: "inline-form" do %>
                   <div class="form-group">
                     <%= text_field_tag :location, nil, class: "form-control", placeholder: "Search city" %>
                   </div>
@@ -31,6 +36,7 @@
                     <%= select_tag :query, options_from_collection_for_select(@sports, "id", "name"), multiple: true, class: 'form-control chosen-select', style: "width:100%" %>
                   </div>
                   <%= submit_tag "Search", class:"btn btn-primary btn-block" %>
+
               <% end %>
 
             </div>

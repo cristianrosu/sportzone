@@ -12,7 +12,20 @@ class Venue < ActiveRecord::Base
   validates :address, presence: true
   validates :sports, presence: true
 
+  def self.sports_in(ids)
+    if ids.blank?
+      includes(:sports).all
+    else
+      includes(:sports).where(sports: { id: ids })
+    end
+  end
 
+  def self.in_bounds(bounds)
+    where(
+      latitude:  bounds.bottom..bounds.top,
+      longitude: bounds.left..bounds.right
+    )
+  end
 
   def full_address
     "#{self.city} #{self.address}"
