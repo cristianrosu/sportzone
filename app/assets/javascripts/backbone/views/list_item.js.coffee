@@ -8,7 +8,7 @@ class Sportzone.Views.ListItem extends Backbone.View
     @model = model
 
     # TODO: Think... is this necessary?
-    # @listenTo(@model, 'sync', @render)
+    # @listenTo(@model, 'change', @render)
     @listenTo(@model, 'remove', @remove)
 
   render: ->

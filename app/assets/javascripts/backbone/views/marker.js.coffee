@@ -5,7 +5,7 @@ class Sportzone.Views.Marker extends Backbone.View
     @iconURL = iconURL
 
     # TODO: Think... is this necessary?
-    # @listenTo(@model, 'sync', @render)
+    # @listenTo(@model, 'change', @render)
     @listenTo(@model, 'remove', @remove)
 
   render: ->
@@ -25,7 +25,6 @@ class Sportzone.Views.Marker extends Backbone.View
       @marker.setMap(null)
 
   _buildMarker: (model, map) ->
-    debugger
     new google.maps.Marker
       position: @_buildPosition(model)
       map: map

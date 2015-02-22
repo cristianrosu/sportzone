@@ -4,12 +4,15 @@ class Sportzone.Views.SearchForm extends Backbone.View
   events:
     'ajax:complete' : 'ajaxComplete'
 
-  initialize: ({collection}) ->
+  initialize: ({collection, location}) ->
     @collection = collection
+    @location = location
 
   ajaxComplete: (event, jqxhr, settings, exception) ->
     switch jqxhr.status
       when 200
         response = JSON.parse(jqxhr.responseText)
-        @collection.remove(@collection.models) # Remove all venues
-        @collection.reset(response.venues)
+        # Update new map center
+        @location.set(response.location)
+        # Perform a "smart" update of venues collection
+        @collection.set(response.venues)
