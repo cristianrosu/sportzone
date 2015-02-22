@@ -12,6 +12,7 @@ class Sportzone.Views.Map extends Backbone.View
 
   _renderMap: ->
     @map = new google.maps.Map(@_mapElement(), @_mapOptions())
+    @_fitBounds()
 
   _changeCenter: ->
     @map.panTo(@_mapCenter())
