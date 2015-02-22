@@ -1,15 +1,22 @@
 class GeolocationService
-  def initialize(location)
-    @location = location
+  def initialize(search_string)
+    @search_string = search_string
   end
 
   ## Get location requested by user through the search form
   #  or default to Cluj
   def location
-    if @location.blank?
-      Geocoder.search('Cluj').first
+    LocationPresenter.new(
+      Geocoder.search(search_string).first,
+      search_string
+    )
+  end
+
+  def search_string
+    @str ||= if @search_string.blank?
+      'Cluj'
     else
-      Geocoder.search(@location).first
+      @search_string
     end
   end
 end

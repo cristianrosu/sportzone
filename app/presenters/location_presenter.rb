@@ -1,4 +1,11 @@
 class LocationPresenter < SimpleDelegator
+  attr_reader :search_string
+
+  def initialize(obj, search_string)
+    @search_string = search_string
+    super(obj)
+  end
+
   def top
     northeast['lat']
   end

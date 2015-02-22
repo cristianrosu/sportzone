@@ -6,6 +6,7 @@
     var sports = new Sportzone.Collections.Sports;
     sports.reset(<%= raw @sports.to_json %>);
     var location = new Sportzone.Models.Location({
+      search_string: '<%= @location.search_string %>',
       latitude: <%= @location.latitude %>,
       longitude: <%= @location.longitude %>,
       top: <%= @location.top %>,
@@ -30,7 +31,7 @@
             <div id="search-form" class="alert alert-warning clearfix">
 
               <%= form_tag(api_venues_path, method: "get", remote: true) do %>
-                  <%= text_field_tag :location, nil, class: "input-form", placeholder: "Search address" %>
+                  <%= text_field_tag :location, nil, class: "input-form", placeholder: "Search address", value: @location.search_string %>
                   <%= select_tag :query, options_from_collection_for_select(@sports, "id", "name"), multiple: true, class: 'chosen-select', style: "width:80%" %>
                   <%= submit_tag("Search") %>
               <% end %>
