@@ -24,7 +24,7 @@
           <div class="panel-content-inner">
             <div id="search-form" class="alert alert-warning clearfix">
 
-              <%= form_tag(explore_path, method: "get") do %>
+              <%= form_tag(api_venues_path, method: "get", remote: true) do %>
                   <%= text_field_tag :location, nil, class: "input-form", placeholder: "Search city" %>
                   <%= select_tag :query, options_from_collection_for_select(@sports, "id", "name"), multiple: true, class: 'chosen-select', style: "width:80%" %>
                   <%= submit_tag("Search") %>

@@ -6,7 +6,7 @@ class Sportzone.Views.Marker extends Backbone.View
 
     # TODO: Think... is this necessary?
     # @listenTo(@model, 'sync', @render)
-    @listenTo(@model, 'destroy', @remove)
+    @listenTo(@model, 'remove', @remove)
 
   render: ->
     @_addMarker()
