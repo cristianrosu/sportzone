@@ -1,6 +1,8 @@
 module GoogleMapsHelper
   def google_maps_api_key
-    '' # it works without an API key for now
+    #TODO move this in some config file
+    #don-t use this key in your own project, it only works for domain http://sportzone.herokuapp.com
+    'AIzaSyBi-pdTqdVRjcTGQlKYcO06DrnT-QSmjSM'
   end
 
   def google_maps_root_url
@@ -8,6 +10,6 @@ module GoogleMapsHelper
   end
 
   def google_maps_api_url
-    "#{google_maps_root_url}?v=3.18"
+    "#{google_maps_root_url}?key=#{google_maps_api_key}"
   end
 end
