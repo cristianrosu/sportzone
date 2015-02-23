@@ -15,8 +15,6 @@
 /vendor/bundle/
 /vendor/ruby/
 
-# add google_analytics.coffee to gitignore
-/app/assets/javascripts/google_analytics.js.coffee
 
 # minimal Rails specific artifacts
 db/*.sqlite3
